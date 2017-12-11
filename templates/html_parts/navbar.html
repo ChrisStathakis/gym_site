@@ -1,0 +1,44 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="300">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="{% url 'homepage' %}">
+                <img src="{% static 'images/logo.png' %}">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'homepage' %}"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'projects:home' %}" class="nav-link"><i class="nc-icon nc-album-2"></i>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" target="_blank" class="nav-link"><i class="nc-icon nc-calendar-60"></i>  Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" target="_blank" class="nav-link"><i class="nc-icon nc-badge"></i>Επικοινωνία</a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                            <p class="d-lg-none">Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                            <i class="fa fa-github"></i>
+                            <p class="d-lg-none">GitHub</p>
+                        </a>
+                    </li>
+	            </ul>
+	        </div>
+		</div>
+    </nav>
