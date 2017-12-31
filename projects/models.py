@@ -33,13 +33,10 @@ class Project(models.Model):
     image = models.ImageField(blank=True, null=True)
     active = models.BooleanField(default=False)
     first_page = models.BooleanField(default=False)
-    demo = models.BooleanField(default=False)
     slug = models.SlugField(null=True, blank=True, allow_unicode=True)
-    category = models.ManyToManyField(Category, blank=True, null=True)
     first_page_text = models.CharField(max_length=250, blank=True, null=True)
     text = HTMLField(blank=True, null=True)
-    href = models.URLField(blank=True, null=True)
-    github_url = models.URLField(blank=True, null=True)
+    
 
     my_query = ProjectManager()
     objects = models.Manager()
