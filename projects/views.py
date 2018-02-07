@@ -6,9 +6,9 @@ from gallery.models import *
 
 
 class ProjectView(ListView):
-    template_name = 'projects/index.html'
+    template_name = 'tim/wodspage.html'
     model = Project
-    paginate_by = 6
+    paginate_by = 20
 
     def get_queryset(self):
         queryset = Project.my_query.active_for_site()
@@ -28,6 +28,7 @@ class ProjectView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         categories = Category.objects.all()
+        exercises = GymPart.objects.all()
         search_name = self.request.GET.get('search_name', None)
         cate_name = self.request.GET.getlist('cate_name', None)
         context.update(locals())

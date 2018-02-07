@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^project/', include('projects.urls', namespace="projects")),
     url(r'^blog/', include('blog.urls', namespace="blog")),
     url(r'^$', Homepage.as_view(), name='homepage'),
-    url(r'^$', CostCalculator.as_view(), name='cost'),
+
 
 
 

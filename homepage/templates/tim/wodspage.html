@@ -1,0 +1,170 @@
+{% extends 'tim/index.html' %} {% load static %}
+
+
+{% block banner %}
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{% static 'crossfit/functional.jpg' %}');">
+
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="main main-raised">
+		<div class="profile-content">
+            <div class="container">
+                <div class="row">
+	                <div class="col-md-6 ml-auto mr-auto">
+        	           <div class="profile">
+	                        <div class="name">
+	                            <h3 class="title">Todays Wod</h3>
+								<h6>2//2018</h6>
+								<div class="card" style="width: 20rem;">
+                                    <div class="card-header card-header-danger">
+                                        Featured
+                                    </div>
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+	                        </div>
+	                    </div>
+    	            </div>
+                </div>
+
+
+                <div class="description text-center">
+                    <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                </div>
+
+
+				<div class="row">
+					<div class="col-md-3 ml-auto mr-auto">
+
+                        <div class="card card-refine card-plain ">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    Φίλτρα
+                                    <button class="btn btn-default btn-fab btn-fab-mini btn-link pull-right" rel="tooltip" title="" data-original-title="Reset Filter">
+                                        <i class="material-icons">cached</i>
+                                    </button>
+                                </h4>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="With Font Awesome Icons">
+                                </div>
+                                <div id="accordion" role="tablist">
+                                    <div class="card card-collapse">
+
+                                        <div class="card-header" role="tab" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Κατηγορίες
+                                                    <i class="material-icons">keyboard_arrow_down</i>
+                                                </a>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body">
+                                                {% for category in categories %}
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            {{ category }}
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card card-collapse">
+                                        <div class="card-header" role="tab" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Ασκήσεις
+                                                    <i class="material-icons">keyboard_arrow_down</i>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="card-body">
+                                                {% for category in exercises %}
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            {{ category }}
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="card">
+                              <div class="card-body ">
+                                    <h6 class="card-category text-danger">
+                                        <i class="material-icons">trending_up</i> Trending
+                                    </h6>
+                                    <h4 class="card-title">
+                                        <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+                                    </h4>
+
+                                </div>
+                                <div class="card-footer ">
+                                        <div class="author">
+                                            <a href="#pablo">
+                                               <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="..." class="avatar img-raised">
+                                               <span>Lord Alex</span>
+                                            </a>
+                                        </div>
+                                       <div class="stats ml-auto">
+                                            <i class="material-icons">favorite</i> 342 &#xB7;
+                                            <i class="material-icons">chat_bubble</i> 45
+                                       </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        {% for project in object_list %}
+                            <div class="card" style="width: 20rem;">
+                              <img class="card-img-top" {% if project.image %}src="{{ project.image.url }}" {% endif %}
+                                   alt="Card image cap">
+                              <div class="card-body">
+                                <h4 class="card-title">{{ project }}</h4>
+                                <p class="card-text">{{ project.category }}</p>
+                                <p class="card-text">{% for ele in project.projectitems_set.all %}{{ ele }},  {% endfor %}</p>
+                                <a href="#" class="btn btn-primary">Συνέχεια..</a>
+                              </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+	</div>
+
+{% endblock %}
