@@ -55,7 +55,7 @@ class Category(MPTTModel):
 
 class GymPart(models.Model):
     title = models.CharField(max_length=50)
-    url_link = models.URLField(blank=True, null=True)
+    url_link = models.CharField(blank=True, null=True, max_length=250)
 
     def __str__(self):
         return self.title
@@ -69,9 +69,9 @@ class Project(models.Model):
     slug = models.SlugField(null=True, blank=True, allow_unicode=True)
     first_page_text = models.CharField(max_length=250, blank=True, null=True)
     text = HTMLField(blank=True, null=True)
-    max_time = models.TimeField(blank=True, null=True)
+    max_time = models.CharField(blank=True, null=True, max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    rounds = models.IntegerField(default=1)
+    rounds = models.IntegerField(default=1, blank=True, null=True)
     my_query = ProjectManager()
     objects = models.Manager()
 
@@ -96,12 +96,11 @@ class ProjectItems(models.Model):
                                             ('b', 'Χρόνος')
                                            ), default='a'
                                  )
-    weight = models.IntegerField(default=0)
+    weight = models.CharField(blank=True, null=True, max_length=50)
     description = HTMLField(blank=True, null=True)
 
     def __str__(self):
         return self.title.title
-
 
 
 @receiver(pre_save, sender=Project)

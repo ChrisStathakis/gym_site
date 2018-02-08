@@ -36,14 +36,14 @@ class ProjectItemsAdmin(admin.ModelAdmin):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     readonly_fields = ['tiny_image']
-    list_filter = ['active', 'first_page',]
+    list_filter = ['active', 'first_page', 'category', ]
     list_display = ['title', 'active', 'first_page',]
     inlines = [ProjectItemTabular, GalleryProjectTabular, ]
     search_fields = ['title',]
     fieldsets = (
         ('General', {
             'fields': ('title',
-                       ('active', 'first_page',),
+                       ('active', 'first_page', 'category'),
                        ('rounds', 'max_time'),
                        ('tiny_image', 'image'),
                        )

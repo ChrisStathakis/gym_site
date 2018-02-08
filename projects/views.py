@@ -4,6 +4,30 @@ from django.db.models import Q
 from .models import *
 from gallery.models import *
 
+import datetime
+
+
+def filters(request):
+    search_pro = request.GET.get('search_name')
+    cate_name = request.GET.getlist('cate_name')
+    exe_name = request.GET.getlist('exe_name')
+    return [search_pro, cate_name, exe_name]
+
+
+def filter_queryset(queryset, filters_list):
+    get_exercises = GymPart.objects.filter(id__in=filters_list[2])
+    print(get_exercises)
+    try:
+        queryset = queryset.filter(category__id__in=filters_list[1]) if filters_list[1] else queryset
+        queryset = queryset.filter(projectitems__id__in=filters_list[2]).distinct() \
+            if filters_list[2] else queryset
+        queryset = queryset.filter(Q(title__icontains=filters_list[0]) |
+                                   Q(category__name__icontains=filters_list[0])
+                                   ).distinct() if filters_list[0] else queryset
+    except:
+        return queryset
+    return queryset
+
 
 class ProjectView(ListView):
     template_name = 'tim/wodspage.html'
@@ -12,31 +36,22 @@ class ProjectView(ListView):
 
     def get_queryset(self):
         queryset = Project.my_query.active_for_site()
-        if self.request.GET:
-            search_pro = self.request.GET.get('search_name')
-            cate_name = self.request.GET.getlist('cate_name')
-            queryset = queryset.filter(Q(title__icontains=search_pro) |
-                                       Q(category__name__icontains=search_pro)
-                                       ).distinct() if search_pro else queryset
-            try:
-                cates = [Category.objects.get(id=ele) for ele in cate_name]
-                queryset = queryset.filter(category__in=cates) if cate_name else queryset
-            except:
-                pass
+        search_pro, cate_name, exe_name = filters(self.request)
+        queryset = filter_queryset(queryset, [search_pro, cate_name, exe_name])
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
-        categories = Category.objects.all()
-        exercises = GymPart.objects.all()
-        search_name = self.request.GET.get('search_name', None)
-        cate_name = self.request.GET.getlist('cate_name', None)
+        categories, exercises = Category.objects.all(), GymPart.objects.all()
+        search_pro, cate_name, exe_name = filters(self.request)
+        featured_exercises = Project.objects.filter(active=True, first_page=True)
+        date = datetime.datetime.now()
         context.update(locals())
         return context
 
 
 class ProjectDetailView(DetailView):
-    template_name = 'projects/detail.html'
+    template_name = 'tim/wod-detail.html'
     model = Project
 
     def get_context_data(self, **kwargs):

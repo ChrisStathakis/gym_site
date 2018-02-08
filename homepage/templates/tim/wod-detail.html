@@ -1,0 +1,122 @@
+{% extends 'tim/index.html' %} {% load static %}
+
+
+{% block banner %}
+
+{% endblock %}
+
+{% block content %}
+ <div class="page-header header-filter" data-parallax="true" style="height:400px;background-image: url('{% static 'crossfit/crossbanner.jpg' %}');">
+
+ </div>
+<div class="main">
+		<div class="profile-content text-center">
+            <div class="container">
+                <div class="row">
+	                <div class="col-md-6 ml-auto mr-auto">
+        	           <div class="profile">
+	                        <div class="name">
+	                            <h3 class="title">{{ object }}</h3>
+								<h6>{{ object.category }}</h6>
+                                <img class="img-raised img-responsive" src="{{ object.image.url }}">
+
+	                        </div>
+	                    </div>
+    	            </div>
+                </div>
+            </div>
+
+                <div style="margin-top: 5%" class="row"><div class="container-fluid full-width-image-wod"></div></div>
+            <div class="container">
+				<div style="margin-top: 5%" class="row">
+					<div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile-tabs">
+                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                        <i class="material-icons">dashboard</i>
+                                        Πρόγραμμα
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                      <i class="material-icons">dashboard</i>
+                                        Επεξήγηση
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                      <i class="material-icons">favorite</i>
+                                        Φωτογραφίες
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active text-center gallery" id="studio">
+  						<div class="row">
+  							<div class="col-md-6">
+                            <div class="description text-center">
+                                <p> Μέγιστος Χρόνος {{ object.max_time|default_if_none:"Όσο Χρειαστεί" }},  Γύροι {{ object.rounds }}</p>
+                            </div>
+  								<table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Άσκηση</th>
+                                        <th colspan="2">Επεξήγηση</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for ele in project.projectitems_set.all %}
+                                    <tr>
+                                        <td class="text-center">{{ forloop.counter }}</td>
+                                        <td class="text-center">{{ ele }}</td>
+                                        <td class="text-center">{{ ele.reps }} {{ ele.get_reps_type_display }} {{ ele.weight|default_if_none:"" }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+  							</div>
+  						</div>
+  					</div>
+                    <div class="tab-pane text-center gallery" id="works">
+  						<div class="row">
+                            {% for ele in project.projectitems_set.all %}
+                                {% if ele.title.url_link %}
+                                    <div class="col-md-5">
+                                        <h4>{{ ele.title }}</h4>
+                                        <iframe width="400" height="400" src="https://www.youtube.com/embed/{{ ele.title.url_link }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+  					</div>
+                    <div class="tab-pane text-center gallery" id="favorite">
+  						<div class="row">
+  							<div class="col-md-3 ml-auto">
+  								<iframe width="400" height="400" src="https://www.youtube.com/embed/_l3ySVKYVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  								<iframe width="400" height="400" src="https://www.youtube.com/embed/_l3ySVKYVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  							</div>
+  							<div class="col-md-3 mr-auto">
+  								<iframe width="400" height="400" src="https://www.youtube.com/embed/_l3ySVKYVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  								<iframe width="400" height="400" src="https://www.youtube.com/embed/_l3ySVKYVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  								<iframe width="400" height="400" src="https://www.youtube.com/embed/_l3ySVKYVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  							</div>
+  						</div>
+  					</div>
+                </div>
+            </div>
+
+        </div>
+	</div>
+{% endblock %}
+
+
+
+
+
+

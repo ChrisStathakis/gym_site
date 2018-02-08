@@ -7,7 +7,17 @@
 <link rel="stylesheet" href="{% static 'assets/css/material-kit.css' %}">
 
 
-<!-- Documentation extras -->
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="{% static 'assets/assets-for-demo/demo.css' %}" rel="stylesheet"/>
-<link href="{% static 'assets/assets-for-demo/vertical-nav.css' %}" rel="stylesheet"/>
+<style>
+    .full-width-image {
+      height: 300px; // your specified height;
+      background: url("{% static 'crossfit/functional.jpg' %}") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .full-width-image-wod {
+      height: 300px; // your specified height;
+      background: url("{% static 'crossfit/crossbanner.jpg' %}") no-repeat center center fixed;
+      background-size: cover;
+    }
+</style>
+
