@@ -7,6 +7,11 @@ from gallery.models import *
 import datetime
 
 
+def initial_data():
+    trainers = Trainer.objects.filter(active=True, first_page=True)
+    return trainers
+
+
 def filters(request):
     search_pro = request.GET.get('search_name')
     cate_name = request.GET.getlist('cate_name')
@@ -16,7 +21,6 @@ def filters(request):
 
 def filter_queryset(queryset, filters_list):
     get_exercises = GymPart.objects.filter(id__in=filters_list[2])
-    print(get_exercises)
     try:
         queryset = queryset.filter(category__id__in=filters_list[1]) if filters_list[1] else queryset
         queryset = queryset.filter(projectitems__id__in=filters_list[2]).distinct() \
@@ -30,7 +34,7 @@ def filter_queryset(queryset, filters_list):
 
 
 class ProjectView(ListView):
-    template_name = 'tim/wodspage.html'
+    template_name = '../templates/tim/wodspage.html'
     model = Project
     paginate_by = 20
 
@@ -44,6 +48,7 @@ class ProjectView(ListView):
         context = super(ProjectView, self).get_context_data(**kwargs)
         categories, exercises = Category.objects.all(), GymPart.objects.all()
         search_pro, cate_name, exe_name = filters(self.request)
+        trainers = initial_data()
         featured_exercises = Project.objects.filter(active=True, first_page=True)
         date = datetime.datetime.now()
         context.update(locals())
@@ -51,11 +56,12 @@ class ProjectView(ListView):
 
 
 class ProjectDetailView(DetailView):
-    template_name = 'tim/wod-detail.html'
+    template_name = '../templates/tim/wod-detail.html'
     model = Project
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
         carousel_images = Gallery.objects.all()
+        trainers = initial_data()
         context.update(locals())
         return context
