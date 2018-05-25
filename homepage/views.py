@@ -11,7 +11,7 @@ def initial_data():
 
 
 class Homepage(TemplateView):
-    template_name = '../templates/tim/index.html'
+    template_name = 'homepage/index.html'
 
     def get_context_data(self, **kwargs):
         context = super(Homepage, self).get_context_data(**kwargs)
