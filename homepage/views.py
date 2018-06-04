@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, ListView
 
 from projects.models import *
 from blog.models import *
@@ -22,11 +22,20 @@ class Homepage(TemplateView):
         return context
 
 
-class ContactPage(TemplateView):
-    template_name = '../templates/tim/contact.html'
+class ServiceView(TemplateView):
+    template_name = 'homepage/service_page.html'
+
+
+class ProgramsView(ListView):
+    template_name = 'homepage/programs_page.html'
+    model = GymPart
+
+
+class AboutPage(TemplateView):
+    template_name = 'homepage/about_page.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ContactPage, self).get_context_data(**kwargs)
+        context = super(AboutPage, self).get_context_data(**kwargs)
         trainers = initial_data()
         context.update(locals())
         return context

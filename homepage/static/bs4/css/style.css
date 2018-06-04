@@ -206,7 +206,7 @@ li.nav-item .btn-white {
   color: #46484a; }
 
 .cover-1 {
-  background: #2b2d34 url(../../crossfit/crossbanner.jpg) center;
+  background: #2b2d34 url(../../crossfit/crossbanner.jpg) center ;
   background-size: cover;
   min-height: 50rem;
   height: auto;
@@ -226,7 +226,7 @@ li.nav-item .btn-white {
     margin: 0 auto; }
 
 .cover-2 {
-  background: #2b2d34 url(../../images/crossbanner.jpg) center;
+  background: #2b2d34 url(../../crossfit/crossbanner.jpg) center ;
   background: #2b2d34;
   background-size: cover;
   min-height: 50rem;
@@ -245,21 +245,25 @@ li.nav-item .btn-white {
     margin: 0 auto; }
 
 .cover-5 {
-  background: #f7f7f8;
+  background: #2b2d34 url(../../crossfit/time.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   min-height: 40rem;
   height: auto;
   border-radius: 0;
   width: 100%;
-  color: #333;
+  color: rgb(255, 253, 253);
   padding-top: 1rem; }
   .cover-5 a.navbar-brand {
-    color: #000 !important; }
+    color: rgb(233, 227, 227) !important; }
   .cover-5 h1 {
-    color: #000;
+    color: rgb(221, 221, 221);
     font-weight: 200; }
   .cover-5 p.lead {
     margin: 2rem auto;
-    color: #696b6e;
+    color: white;
     font-family: "Droid Serif", Times, Georgia, serif;
     font-style: italic; }
   .cover-5 .cover-container {

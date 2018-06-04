@@ -1,0 +1,72 @@
+{% extends 'homepage/index.html' %} {% load static %}
+
+{% block content %}
+    <section class="cover-5 text-center">
+        {% include "homepage/includes/navbar.html" %}
+        <div class="cover-container pb-5 ">
+            <div class="cover-inner container">
+                <p class="lead ">Δείτε τις ώρες γυμναστικής </p>
+                <div class="divider"></div>
+                <h1 class="jumbotron-heading">Προγραμα</h1>
+                <div class="row">
+                    <table class="table table-responsive table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Γυμναστης</th>
+                                <th>Δευτέρα</th>
+                                <th>Τρίτη</th>
+                                <th>Τετάρτη</th>
+                                <th>Πεμπτη</th>
+                                <th><Παρασκεύη</th>
+                                <th>Σάββατο</th>
+                                <th>Κυριακή</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Δούκας Γιάννης</td>
+                                <td>20:00-21:30</td>
+                                <td>20:30-22:00</td>
+                                <td>20:00-21:30</td>
+                                <td>20:00-21:30</td>
+                                <td>20:30-22:00</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="features-1 text-center">
+    <div class="container">
+            <h2>Υπηρεσίες</h2>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col-md-4 col-feature">
+                    <img class='mb-4 img-fluid' src="{% static 'crossfit/crossfit1.jpg' %}">
+                    <h4>CrossFit</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus erat sed sem sagittis cursus.</p>
+                    <p><a class="btn btn-outline-primary mt-2" href="#" role="button">View details</a></p>
+                </div>
+                <div class="col-md-4 col-feature">
+                    <img class='mb-4 img-fluid' src="{% static 'crossfit/karate.png' %}">
+                    <h4>Καρατε</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus erat sed sem sagittis cursus.</p>
+                    <p><a class="btn btn-outline-primary mt-2" href="#" role="button">View details</a></p>
+                </div>
+                <div class="col-md-4 col-feature">
+                    <img class='mb-4 img-fluid' src="{% static 'crossfit/functional.jpg' %}">
+                    <h4>Functional</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus erat sed sem sagittis cursus.</p>
+                    <p><a class="btn btn-outline-primary mt-2" href="#" role="button">View details</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+{% endblock content %}
+    

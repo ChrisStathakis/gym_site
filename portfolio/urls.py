@@ -23,11 +23,10 @@ from homepage.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^project/', include('projects.urls', namespace="projects")),
-    url(r'^blog/', include('blog.urls', namespace="blog")),
-    path('trainer/<int:pk>/', TrainerPage.as_view(), name='trainer'),
     url(r'^$', Homepage.as_view(), name='homepage'),
-    path('επικοινωνία/', ContactPage.as_view(), name='contact'),
+    path('προγράμματα/', ProgramsView.as_view(), name='programs_view'),
+    path('υπηρεσίες/', ServiceView.as_view(), name='service_view'),
+    path('about/', AboutPage.as_view(), name='about'), 
 
 
 

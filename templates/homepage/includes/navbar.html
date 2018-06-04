@@ -1,7 +1,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="{% url 'homepage' %}">Elite Fitness</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -11,13 +11,16 @@
                         <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Υπηρεσίες</a>
+                        <a class="nav-link" href="{% url 'service_view' %}">Υπηρεσίες</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Προγράμματα</a>
+                        <a class="nav-link" href="{% url 'programs_view' %}">Προγράμματα</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'about' %}">Αρχείο</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     
                 </ul>

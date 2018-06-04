@@ -1,0 +1,61 @@
+{% extends 'homepage/index.html' %} {% load static %}
+
+{% block content %}
+    <section class="cover-5 text-center">
+        {% include "homepage/includes/navbar.html" %}
+        <div class="cover-container pb-5 ">
+            <div class="cover-inner container">
+                <p class="lead ">Δείτε τις ώρες γυμναστικής </p>
+                <div class="divider"></div>
+                <h1 class="jumbotron-heading">Προγραμα</h1>
+                <div class="row">
+                    <table class="table table-responsive table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Γυμναστης</th>
+                                <th>Δευτέρα</th>
+                                <th>Τρίτη</th>
+                                <th>Τετάρτη</th>
+                                <th>Πεμπτη</th>
+                                <th><Παρασκεύη</th>
+                                <th>Σάββατο</th>
+                                <th>Κυριακή</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Δούκας Γιάννης</td>
+                                <td>20:00-21:30</td>
+                                <td>20:30-22:00</td>
+                                <td>20:00-21:30</td>
+                                <td>20:00-21:30</td>
+                                <td>20:30-22:00</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="features-1 text-center">
+    <div class="container-fluid">
+        <h2>Tutotials</h2>
+        <div class="divider"></div>
+        <div class="row">
+            {% for ele in object_list %}
+                <div class="col-md-4">
+                    <h4>{{ ele.title }}</h4>
+                    <iframe width="400" height="400" src="https://www.youtube.com/embed/{{ ele.url_link }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <br><br><br>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    
+{% endblock content %}
+    

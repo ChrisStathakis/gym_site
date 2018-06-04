@@ -1,0 +1,69 @@
+{% extends 'homepage/index.html' %}
+
+
+{% block content %}
+    <section class="cover-2 text-left">
+        {% include "homepage/includes/navbar.html" %}
+        <div class="cover-container">
+            <div class="cover-inner container">
+                    <div class="row justify-center">
+                        <div class="col-lg-5 mt-5 mb-5 text-center text-lg-left">
+                            <h1 class="jumbotron-heading">Που θα μας βρείτε</h1>
+                            <p class="lead">A collection of coded HTML and CSS elements to help your build your startup website. Clean design, fully responsive and based on Bootstrap 4.</p>
+                            <p>
+                        </p>
+                    </div>
+                    <div class="col-lg-5 offset-lg-2 mt-5 mb-5 text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-5 text-center">
+        <div class="container">
+            <div class="row contact-details">
+                <div class="col-sm-8 text-center text-md-left mb-4">
+                    <h3>Ask us a question</h3>
+                            <form class="contact-form mt-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control-custom mb-4" placeholder="Name" value="Your name">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control-custom mb-4" placeholder="Email address" value="Email address">
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <textarea class="form-control-custom mb-4" rows="3">Your Message</textarea><br />
+                                        <button type="submit" class="btn btn-primary btn-lg mb-4">Send Message</button>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-4 text-center text-md-left">
+                            <h3>Πληροφορίες</h3>
+                            <h4 class="pt-4">Email</h4>
+                            <p>hello@startup.co</p>
+                            <h4 class="pt-2">Phone</h4>
+                            <p>+111 234 567 89</p>
+                            <h4 class="pt-2">Address</h4>
+                            <p>1 Street Name, City, Zip Code<br />
+                            United States</p>
+                            <ul class="social">
+                                <li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>
+                                <li><a href="#" title="Twitter" class="fa fa-twitter"></a></li>
+                                <li><a href="#" title="Google+" class="fa fa-google"></a></li>
+                                <li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>
+                                <li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+		</section>
+
+{% endblock %}
+		
